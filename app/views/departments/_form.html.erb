@@ -1,0 +1,31 @@
+<%= form_with(model: department, local: true) do |form| %>
+
+  <% if department.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(department.errors.count,"error") %> Um erro proibiu este departamento de ser salvo:</h2>
+      <ul>
+      <% department.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="row">
+    <div class="col-sm-8">
+      <div class="form-group">
+        <%= form.label "Nome:"%>
+        <%= form.text_field :name, class:"form-control" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-3">
+      <div class="form-group">
+        <%= form.submit "Criar", class:"btn btn-default" %>
+      </div>
+    </div>
+  </div>
+
+<% end %>
