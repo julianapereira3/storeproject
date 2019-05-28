@@ -1,0 +1,55 @@
+<% @product.errors.full_messages.each do |msg| %>
+	<div class="alert alert-danger" role="alert">
+		<%= msg %>
+	</div>
+<% end %>
+
+<%= form_for @product do |form| %>
+	<div class="row">
+		<div class="col-sm-8">
+			<div class="form-group">
+				<%= form.label "Nome:" %> 
+				<%= form.text_field :name, class:"form-control" %>
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-sm-8">
+			<div class="form-group">
+				<%= form.label "Descrição:" %>
+				<%= form.text_area :desc, class:"form-control", rows:4 %>
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-sm-2">
+			<div class="form-group">
+				<%= form.label "Departamento:" %>
+				<%= form.collection_select :id_department, @departments, :id, :name, {}, class:"form-control" %>
+			</div>   
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-sm-2">
+			<div class="form-group">
+				<%= form.label "Preço:" %> 
+				<%= form.number_field :price, step:0.01, class:"form-control" %>
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-sm-2">
+			<div class="form-group">
+				<%= form.label "Quantidade: "%>
+				<%= form.number_field :amount, class:"form-control"  %>
+			</div>
+		</div>
+	</div>
+
+	<%= form.submit action_text, class:"btn btn-primary" %>
+
+<% end %>
