@@ -3,15 +3,15 @@
 Online store design based on a basic Ruby on Rails 5 Alura course, the project is focused in learn and understand concepts, language syntax and workflow in its phases, such as:
 
  * Website from zero;
- * Active Record
+ * Active Record;
  * CRUD;
  * Validations;
  * Refatoration;
  * Partials;
  * DRY;
  * Deploy;
- * Working with 2 differents databases.
- * Heroku: _Cloud Application Platform_
+ * Working with 2 differents databases;
+ * Heroku: _Cloud Application Platform_.
 
 ### Requirements:
 
