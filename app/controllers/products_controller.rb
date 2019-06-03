@@ -2,8 +2,10 @@ class ProductsController < ApplicationController
 before_action :set_product, only: [:edit, :update, :destroy]
 
 	def index
-		@products = Product.order(name: :asc).limit 4
-		@product_with_discount = Product.order(:price).limit 1
+		if params[:name].present?
+			@products = Product.where "name like ?", "%#{@name = params[:name]}%"
+		end
+		@product_with_discount = Product.order(:price).limit 4
 	end
 
 	def new
@@ -40,12 +42,13 @@ before_action :set_product, only: [:edit, :update, :destroy]
 		redirect_to root_url
 	end
 
+
+private
+
 	def search
 		@name = params[:name]   
 		@products = Product.where "name like ?", "%#{@name}%"
 	end
-
-private
 
 	def product_params
 		params.require(:product).permit(:name, :desc, :price, :amount, :id_department)
