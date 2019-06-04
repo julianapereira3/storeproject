@@ -2,8 +2,11 @@ class ProductsController < ApplicationController
 before_action :set_product, only: [:edit, :update, :destroy]
 
 	def index
+		if params[:name].present?
+			@products = Product.where "name like ?", "%#{@name = params[:name]}%"
+		end
 		@products = Product.order(name: :asc).limit 4
-		@product_with_discount = Product.order(:price).limit 1
+		@product_with_discount = Product.order(:price).limit 4
 	end
 
 	def new
@@ -38,11 +41,6 @@ before_action :set_product, only: [:edit, :update, :destroy]
 		@product.destroy
 		flash[:notice] = "Produto removido com sucesso!"
 		redirect_to root_url
-	end
-
-	def search
-		@name = params[:name]   
-		@products = Product.where "name like ?", "%#{@name}%"
 	end
 
 private
