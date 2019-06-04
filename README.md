@@ -23,10 +23,9 @@ Online store design based on a basic Ruby on Rails 5 Alura course, the project i
 
 ###  After the project download:
 
-Run the server on terminal with `rails server` _command line_ inside the correct project folder.
+Run the server on terminal with `bundle install`, followed by `rails db:migrate`.
+The next step in to run ` rails server ` or ` rails s ` on _terminal_,inside the correct project folder
 
-`bundle install`
-`rails db:migrate`
 
 ### Observations:
 
