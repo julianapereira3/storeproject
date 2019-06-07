@@ -50,7 +50,7 @@ before_action :set_department, only: [:show, :edit, :update, :destroy]
     end
   end
 
-private
+  private
 
   def set_department
     @department = Department.find_by(params[:id])

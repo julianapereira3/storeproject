@@ -4,9 +4,10 @@ before_action :set_product, only: [:edit, :update, :destroy]
 	def index
 		if params[:name].present?
 			@products = Product.where "name like ?", "%#{@name = params[:name]}%"
+		else
+			@products = Product.order(:name).limit 5
 		end
-		@products = Product.order(name: :asc).limit 4
-		@product_with_discount = Product.order(:price).limit 4
+		@product_with_discount = Product.order(:price).limit 2
 	end
 
 	def new
@@ -43,7 +44,7 @@ before_action :set_product, only: [:edit, :update, :destroy]
 		redirect_to root_url
 	end
 
-private
+	private
 
 	def product_params
 		params.require(:product).permit(:name, :desc, :price, :amount, :id_department)
