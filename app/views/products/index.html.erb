@@ -15,13 +15,17 @@
 			<td colspan="2">
 		</tr>
 	</thead>
-		<tbody>
-			<%= render @products %>
-		</tbody>
+	<tbody>
+		<% @products.each do |product| %>
+	</tbody>
 </table>
-	<div class="alert alert-success" role="alert">
-		<h4 class="alert-heading"> Produtos com desconto </h4>
-	</div>
+<%== pagy_nav(@pagy) %>
+<% end %>
+
+
+<div class="alert alert-success" role="alert">
+	<h4 class="alert-heading"> Produtos com desconto </h4>
+</div>
 		
 <table class="table table-bordered table-hover">
 	<thead>
@@ -34,7 +38,7 @@
 			<td colspan="2">
 		</tr>
 	</thead>
-		<tbody>
-			<%= render @product_with_discount %>
-		</tbody>
+	<tbody>
+		<%= render @product_with_discount %>
+	</tbody>
 </table>
