@@ -16,9 +16,12 @@
 		</tr>
 	</thead>
 	<tbody>
-		<%= render @products %>
+		<% @products.each do |product| %>
 	</tbody>
 </table>
+<%== pagy_nav(@pagy).html_safe %>
+<% end %>
+
 
 <div class="alert alert-success" role="alert">
 	<h4 class="alert-heading"> Produtos com desconto </h4>

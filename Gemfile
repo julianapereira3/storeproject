@@ -7,6 +7,8 @@ gem 'rails-i18n', '~> 5.1'
 gem 'twitter-bootstrap-rails'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.3'
+# Gem Pagy, the newest way to paginate your website applications.
+gem 'pagy'
 
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
