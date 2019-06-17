@@ -1,13 +1,14 @@
-class ProductsController < ApplicationController
-before_action :set_product, only: [:edit, :update, :destroy]
+class ProductsController < ApplicationController	
+	before_action :set_product, only: [:edit, :update, :destroy]
+
+	include Pagy::Backend
 
 	def index
+		@pagy, @products = pagy(Product.all, items: 3)
 		if params[:name].present?
 			@products = Product.where "name like ?", "%#{@name = params[:name]}%"
-		else
-			@products = Product.order(:name).limit 5
 		end
-		@product_with_discount = Product.order(:price).limit 2
+			@product_with_discount = Product.order(:price).limit 2
 	end
 
 	def new
