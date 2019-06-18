@@ -15,10 +15,14 @@
 			<td colspan="2">
 		</tr>
 	</thead>
-	<tbody>
-		<%= render @products %>
-	</tbody>
+		<tbody>
+			<%= render @products %>
+			<% @products.each do |product| %>
+			<% end %>
+		</tbody>
 </table>
+<%== pagy_nav(@pagy).html_safe %> 
+
 
 <div class="alert alert-success" role="alert">
 	<h4 class="alert-heading"> Produtos com desconto </h4>
